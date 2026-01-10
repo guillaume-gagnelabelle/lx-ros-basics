@@ -2,89 +2,88 @@
 <a href="https://duckietown.com"><img src="./assets/images/dtlogo.png" alt="Duckietown Logo" width="50%"></a>
 </p>
 
-# **Learning Experience (LX): ROS Basics**
+# Avant de commencer
 
-Find the most up-to-date instructions on [how to run LXs on the Duckietown manual](https://docs.duckietown.com/ente/duckietown-manual/60-learning-experiences/lx-general-procedure.html). 
+Avant de commencer ce laboratoire, nous devons configurer votre compte sur l'ordinateur local que vous utiliserez pour toutes vos séances de travaux pratiques dans le cadre du cours AA3331.
 
-# About these activities
-
-In this learning experience, you will learn the basics of [ROS (Robot Operating System)](https://ros.org/).
-
-# Instructions
-
-**NOTE:** All commands below are intended to be executed from the root directory of this exercise (i.e., the directory containing this README).
-
-The recommended way to use this repository is to make a fork and then clone that fork. This can be done through
-the GitHub web interface. However, you are also free to simply clone this repository and get started. 
-
-This exercise can be run on a real Duckiebot or on a virtual Duckiebot in the Duckiematrix. 
-
-## 1. Make sure your exercise is up-to-date
-
-In case your instructor has updated something in this repo, you should make sure everything is up to date (this assumes
-that you created a fork):
-
-    git remote add upstream git@github.com:duckietown/lx-ros-basics
-    git pull upstream <branch>
-
-**NOTE:** Example instructions to fork a repository and configure to pull from upstream can be found in the 
-[duckietown-lx repository README](https://github.com/duckietown/duckietown-lx/blob/mooc2022/README.md).
+1. Cliquez sur la session de connexion appropriée (soit la session du mardi, soit celle du jeudi). Le mot de passe doit être `TcrdhwrAplfIWJ`. Vous serez immédiatement invité(e) à créer un mot de passe. Veuillez retenir ce mot de passe, car c'est celui que vous utiliserez tout au long du semestre.
+2. Ouvrez un terminal en appuyant sur `Ctrl-Alt-T`.
+3. Installez le Duckietown Shell avec `pipx install duckietown-shell`.
+4. Assurez-vous que le fichier exécutable se trouve dans votre chemin d'accès avec `pipx ensurepath`
+5. Vous devez vous déconnecter puis vous reconnecter pour que cette modification prenne effet.
+6. L'un des deux membres du groupe doit se rendre sur https://hub.duckietown.com, créer un compte et générer un jeton. Une fois l'inscription terminée, le jeton sera disponible à l'adresse https://hub.duckietown.com/profile/. Il s'agit d'une longue chaîne de caractères commençant par `dt2-....`. Vous pouvez la copier dans le presse-papiers dès maintenant en utilisant le bouton situé à gauche.
+7. De retour dans le terminal, tapez `dts`. Cela initialisera le "Duckietown Shell". Lors du processus de configuration, il vous sera demandé de saisir le jeton que vous venez de copier. Lorsqu'on vous demande quel type de profil choisir, sélectionnez `ente`.
+8. Enfin, exécutez la commande `dts setup mkcert`, qui est nécessaire pour exécuter VSCode dans le navigateur.
 
 
-## 2. Make sure your system is up-to-date
+# **Lab 1: ROS Basics**
 
-- 💻 Always make sure your Duckietown Shell is updated to the latest version. See [installation instructions](https://github.com/duckietown/duckietown-shell)
+# Introduction
 
-- 💻 Update the shell commands: `dts update`
+Dans le cadre de cette laboratoire, vous découvrirez les bases de [ROS (Robot Operating System)](https://ros.org/).
 
-- 💻 Update your laptop/desktop: `dts desktop update`
 
-- 🚙 Update your Duckiebot: `dts duckiebot update ROBOTNAME`
+##  Mais d'abord...
+
+Assurez-vous que votre système est à jour.
+
+- 💻 Veillez toujours à ce que votre  Duckietown Shell soit mise à jour vers la dernière version: `pipx upgrade duckietown-shell`
+
+- 💻 Mettre à jour les commandes du shell: `dts update`
+
+- 💻 Assurez-vous que toutes les images Docker présentes sur votre ordinateur sont à jour: `dts desktop update`
+
+- 🚙 Assurez-vous que toutes les images Docker présentes sur votre ordinateur sont à jour: `dts duckiebot update ROBOTNAME`
 (where `ROBOTNAME` is the name of your Duckiebot - real or virtual.)
 
 
-## 3. Work on the exercise
+# Comment réaliser cet exercice de laboratoire ?
 
-### Launch the code editor
+## Lancez l'éditeur de code.
 
-Open the code editor by running the following command,
+Ouvrez l'éditeur de code (VSCode) en exécutant la commande suivante:
 
 ```
 dts code editor
 ```
 
-Wait for a URL to appear on the terminal, then click on it or copy-paste it in the address bar
-of your browser to access the code editor. The first thing you will see in the code editor is
-this same document; you can continue there.
+Attendez qu'une URL s'affiche dans le terminal, puis cliquez dessus ou copiez-la et collez-la dans la barre d'adresse de votre navigateur pour accéder à l'éditeur de code. Le premier élément que vous verrez dans l'éditeur de code est ce même document. 
+
+**Vous pouvez poursuivre votre travail à partir de là**
 
 
-### Walkthrough of notebooks
+## Les notebooks "Jupyter"
 
-**NOTE**: You should be reading this from inside the code editor in your browser.
+**REMARQUE** : Vous devez lire ce message depuis l'éditeur de code de votre navigateur.
 
-Inside the code editor, use the navigator sidebar on the left-hand side to navigate to the
-`notebooks` directory and open the first notebook.
+Dans l'éditeur de code, utilisez la barre latérale de navigation située à gauche pour accéder au
+dossier `notebooks` et ouvrir le premier notebook.
 
-Follow the instructions on the notebook and work through the notebooks in sequence.
+Suivez les instructions du notebook et parcourez les notebooks dans l'ordre.
 
+Une fois que vous avez terminé toutes les tâches des carnets de notes, vous pouvez suivre les instructions suivantes pour tester votre code.
 
-### Testing with the Duckiematrix
+## Exécution de votre code
 
-To test your code in the Duckiematrix, you will need a virtual robot. You can create one with the command:
+### Tester avec le Duckiematrix (optionnel)
+
+Il peut être utile de tester votre code dans un environnement de simulation avant de l'essayer sur le robot réel. Pour cela, nous avons le Duckiematrix.
+
+Pour tester votre code dans Duckiematrix, vous aurez besoin d'un robot virtuel. Vous pouvez en créer un avec la commande suivante:
 
 ```
 dts duckiebot virtual create [VBOT]
 ```
 
-where `[VBOT]` can be anything you like (but remember it for later).
+où `[VBOT]` peut être n'importe quoi (mais n'oubliez pas ce nom pour la suite).
 
-Then you can start your virtual robot with the command:
+Vous pouvez ensuite démarrer votre robot virtuel avec la commande:
 
 ```
 dts duckiebot virtual start [VBOT]
 ```
 
-You should see it with a status `Booting` and finally `Ready` if you look at `dts fleet discover`: 
+Vous devriez le voir avec le statut « Booting » (démarrage) et enfin « Ready » (prêt) si vous consultez la commande `dts fleet discover` :
 
 ```
      | Hardware |   Type    | Model |  Status  | Hostname 
@@ -92,42 +91,43 @@ You should see it with a status `Booting` and finally `Ready` if you look at `dt
 [VBOT] |  virtual | duckiebot | DB21J |  Ready   | [VBOT].local
 ```
 
-Now that your virtual robot is ready, you can start the Duckiematrix. From this exercise directory, do:
+Maintenant que votre robot virtuel est prêt, vous pouvez démarrer Duckiematrix. Depuis ce répertoire d'exercices, exécutez la commande suivante :
 
 ```
 dts code start_matrix
 ```
 
-You should see the Unity-based Duckiematrix simulator start up. The startup screen will look like:
+Vous devriez voir le simulateur Duckiematrix, basé sur Unity, démarrer. L'écran de démarrage ressemblera à ceci :
 
 ![duckiematrix_start](assets/duckiematrix_start.png)
 
-From here, you can click anywhere on the window and click [ENTER] to make it become active. From here, you can move the duckie towards the Duckiebot with the 'w', 'a', 's', and 'd' keys or you can move the camera angle to view the Duckiebot with the mouse. Alternatively, you can change to an overhead view by pressing 'v', which will give you a view that looks like this:
+À partir d'ici, vous pouvez cliquer n'importe où dans la fenêtre et appuyer sur la touche [ENTRÉE] pour l'activer. Vous pouvez ensuite déplacer le petit canard vers le Duckiebot à l'aide des touches « w », « a », « s » et « d », ou modifier l'angle de la caméra pour observer le Duckiebot avec la souris. Vous pouvez également passer à une vue de dessus en appuyant sur la touche « v », ce qui vous donnera une vue similaire à celle-ci :
 
 ![duckiematrix_overhead](assets/duckiematrix_overhead.png)
 
 
-### Build the Code
+### "Build" votre code
 
-You can build the code with 
+Vous pouvez build le code avec
 
 ```
 dts code build -R ROBOTNAME
 ```
 
-where ROBOTNAME can be either a real or virtual robot. 
+où ROBOTNAME peut être un robot réel ou virtuel.
 
-### Testing the code
+### Tester le code
 
-Then you may run your code with 
+Vous pouvez ensuite exécuter votre code avec
 
-    $ dts code workbench -R ROBOTNAME [-m]
+```
+dts code workbench -R ROBOTNAME [-m]
+```
 
-where ROBOTNAME can be either a real or virtual robot, but if it is a virtual robot, you should include the `-m` option
-to indicate that you want to test it in the Duckiematrix. 
+où ROBOTNAME peut être un robot réel ou virtuel, mais s'il s'agit d'un robot virtuel, vous devez inclure l'option `-m` pour indiquer que vous souhaitez le tester dans Duckiematrix.
 
 
-**Time to [Start the first Notebook!](./notebooks/01_navigating_file_system.ipynb)**
+Si vous ne l'avez pas encore fait, **il est temps de [commencer le premier notebook!](./notebooks/01_navigating_file_system.ipynb)**
 
 ## Credits
 
