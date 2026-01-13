@@ -11,12 +11,12 @@ Avant de commencer ce laboratoire, nous devons configurer votre compte sur l'ord
 3. Installez le Duckietown Shell avec `pipx install duckietown-shell`.
 4. Assurez-vous que le fichier exécutable se trouve dans votre chemin d'accès avec `pipx ensurepath`
 5. Vous devez vous déconnecter puis vous reconnecter pour que cette modification prenne effet.
-6. L'un des deux membres du groupe doit se rendre sur https://hub.duckietown.com, créer un compte et générer un jeton. Une fois l'inscription terminée, le jeton sera disponible à l'adresse https://hub.duckietown.com/profile/. Il s'agit d'une longue chaîne de caractères commençant par `dt2-....`. Vous pouvez la copier dans le presse-papiers dès maintenant en utilisant le bouton situé à gauche.
+6. L'un des deux membres du groupe doit se rendre sur https://hub.duckietown.com, créer un compte et générer un jeton. Une fois l'inscription terminée, le jeton sera disponible à l'adresse https://hub.duckietown.com/profile/. Il s'agit d'une longue chaîne de caractères commençant par `dt2-....`. Vous pouvez la copier dès maintenant en utilisant le bouton situé à gauche.
 7. De retour dans le terminal, tapez `dts`. Cela initialisera le "Duckietown Shell". Lors du processus de configuration, il vous sera demandé de saisir le jeton que vous venez de copier. Lorsqu'on vous demande quel type de profil choisir, sélectionnez `ente`.
 8. Enfin, exécutez la commande `dts setup mkcert`, qui est nécessaire pour exécuter VSCode dans le navigateur.
 
 
-# **Lab 1: ROS Basics**
+# **Labo 1: ROS Bases**
 
 # Introduction
 
