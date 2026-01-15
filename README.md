@@ -4,7 +4,7 @@
 
 # Avant de commencer
 
-Avant de commencer ce laboratoire, nous devons configurer votre compte sur l'ordinateur local que vous utiliserez pour toutes vos séances de travaux pratiques dans le cadre du cours AA3331.
+Avant de commencer ce laboratoire, nous devons configurer votre compte sur l'ordinateur local que vous utiliserez pour toutes vos séances de travaux pratiques dans le cadre du cours IFT3345.
 
 1. Cliquez sur la session de connexion appropriée (soit la session du mardi, soit celle du jeudi). Le mot de passe doit être `TcrdhwrAplfIWJ`. Vous serez immédiatement invité(e) à créer un mot de passe. Veuillez retenir ce mot de passe, car c'est celui que vous utiliserez tout au long du semestre.
 2. Ouvrez un terminal en appuyant sur `Ctrl-Alt-T`.
@@ -20,7 +20,7 @@ Avant de commencer ce laboratoire, nous devons configurer votre compte sur l'ord
 
 # Introduction
 
-Dans le cadre de cette laboratoire, vous découvrirez les bases de [ROS (Robot Operating System)](https://ros.org/).
+Dans le cadre de ce laboratoire, vous découvrirez les bases de [ROS (Robot Operating System)](https://ros.org/).
 
 
 ##  Mais d'abord...
@@ -33,8 +33,8 @@ Assurez-vous que votre système est à jour.
 
 - 💻 Assurez-vous que toutes les images Docker présentes sur votre ordinateur sont à jour: `dts desktop update`
 
-- 🚙 Assurez-vous que toutes les images Docker présentes sur votre ordinateur sont à jour: `dts duckiebot update ROBOTNAME`
-(where `ROBOTNAME` is the name of your Duckiebot - real or virtual.)
+- 🚙 Assurez-vous que toutes les images Docker présentes sur votre robot sont à jour: `dts duckiebot update ROBOTNAME`
+(où `ROBOTNAME` est le nom de votre Duckiebot - réel ou virtuel.)
 
 
 # Comment réaliser cet exercice de laboratoire ?
@@ -129,9 +129,9 @@ où ROBOTNAME peut être un robot réel ou virtuel, mais s'il s'agit d'un robot 
 
 Si vous ne l'avez pas encore fait, **il est temps de [commencer le premier notebook!](./notebooks/01_navigating_file_system.ipynb)**
 
-## Credits
+## Crédits
 
-This learning experience is provided by Duckietown in collaboration with 
+Cet exercice a été fourni par Duckietown en collaboration avec le 
 [Prof. Romulo Meira-Goes, Ph.D](https://www.eecs.psu.edu/departments/directory-detail-g.aspx?q=rzm5911) 
-(Pennsylvania State University). Visit the 
-[Duckietown Website](https://www.duckietown.com) for more learning materials, documentation, and demos.
+(Pennsylvania State University). Visitez le 
+[site Web de Duckietown](https://www.duckietown.com) pour accéder à davantage de ressources pédagogiques, de documentation et de démonstrations.
