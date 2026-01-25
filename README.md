@@ -131,7 +131,6 @@ Si vous ne l'avez pas encore fait, **il est temps de [commencer le premier noteb
 
 ## Credits
 
-This learning experience is provided by Duckietown in collaboration with 
+Cet exercice a bénéficié de contributions importantes de
 [Prof. Romulo Meira-Goes, Ph.D](https://www.eecs.psu.edu/departments/directory-detail-g.aspx?q=rzm5911) 
-(Pennsylvania State University). Visit the 
-[Duckietown Website](https://www.duckietown.com) for more learning materials, documentation, and demos.
+(Pennsylvania State University). 
